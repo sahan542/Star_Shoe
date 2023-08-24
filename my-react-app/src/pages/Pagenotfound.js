@@ -1,12 +1,18 @@
-import React from 'react'
-import Layout from '../components/layout/Layout'
+import React from 'react';
+import Layout from '../components/layout/Layout';
+import { Link } from 'react-router-dom';
 
 const Pagenofound = () => {
   return (
     <Layout>
-        <h1>Page Not Found</h1>
-    </Layout>
-  )
-}
+      <div className="pnf">
+        <h1 className="pnf-tittle">404</h1>
+        <h2 className="pnf-heading">Oops ! Page Not Found.</h2>
+        <Link to='/' className="pnf-btn">Go Back</Link>
+      </div>
 
-export default Pagenofound
+    </Layout>
+  );
+};
+
+export default Pagenofound;

@@ -6,28 +6,24 @@ import "../../styles/AuthStyles.css";
 import {toast} from 'react-toastify';
 
 
-const Register = () => {
-  const [name, setName] = useState("");
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
-  const [address, setAddress] = useState("");
+
   const navigate = useNavigate();
 
   // form function
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/v1/auth/register", {
-        name,
+      const res = await axios.post("/api/v1/auth/login", {
         email,
-        password,
-        phone,
-        address,
+        password
+
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
-        navigate("/login");
+        navigate("/");
       } else {
         toast.error(res.data.message);
       }
@@ -39,22 +35,11 @@ const Register = () => {
   console.log(process.env.REACT_APP_API);
 
   return (
-    <Layout title="Register -Star_Shoe">
+    <Layout title="Login -Star_Shoe">
       <div className="form-container" style={{ minHeight: "90vh"  }}>
         <form onSubmit={handleSubmit}>
-          <h4 className="title">REGISTER FORM</h4>
-          <div className="mb-3">
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="Enter Your Name"
-              required
-              autoFocus
-            />
-          </div>
+          <h4 className="title">LOGIN FORM</h4>
+          
           <div className="mb-3">
             <input
               type="email"
@@ -77,30 +62,9 @@ const Register = () => {
               required
             />
           </div>
-          <div className="mb-3">
-            <input
-              type="text"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="Enter Your Phone"
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <input
-              type="text"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              className="form-control"
-              id="exampleInputEmail1"
-              placeholder="Enter Your Address"
-              required
-            />
-          </div>
+          
           <button type="submit" className="pnf-btn">
-            REGISTER
+            Login
           </button>
         </form>
       </div>
@@ -108,4 +72,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;

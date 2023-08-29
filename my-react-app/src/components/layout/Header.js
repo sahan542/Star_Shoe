@@ -41,8 +41,7 @@ const Header = () => {
             <Link to="/" className="navbar-brand">
               🛒 Ecommerce App
             </Link>
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-               <SearchInput />                  
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">         
 
               <li className="nav-item">
                 <NavLink to="/" className="nav-link ">
@@ -63,16 +62,6 @@ const Header = () => {
                       All Categories
                     </Link>
                   </li>
-                  {categories?.map((c) => (
-                    <li>
-                      <Link
-                        className="dropdown-item"
-                        to={`/category/${c.slug}`}
-                      >
-                        {c.name}
-                      </Link>
-                    </li>
-                  ))}
                 </ul>
               </li>
 
@@ -125,13 +114,7 @@ const Header = () => {
                   </li>
                 </>
               )}
-              <li className="nav-item">
-                <NavLink to="/cart" className="nav-link">
-                  <Badge count={cart?.length} showZero offset={[10, -5]}> 
-                    Cart
-                  </Badge>
-                </NavLink>
-              </li>
+              
             </ul>
           </div>
         </div>

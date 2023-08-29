@@ -12,7 +12,7 @@ const [auth,setAuth]= useState({
 
 //default axios
 axios.defaults.headers.common['Authorization'] = auth?.token
-useEffect(() => {
+/* useEffect(() => {
     const data = localStorage.getItem('auth')
     if(data){
         const parseData = JSON.parse(data)
@@ -22,7 +22,7 @@ useEffect(() => {
             token:parseData.token,
         })
     }
-},{})
+},{})*/
 return (
     <AuthContext.Provider value={[auth,setAuth]}>
         {Children}

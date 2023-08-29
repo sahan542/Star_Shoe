@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
+/*
 import { Prices } from "../components/Prices";
-import { useCart } from "../context/cart";
+import { useCart } from "../context/cart"; */
 import axios from "axios";
 import toast from "react-hot-toast";
 import Layout from "./../components/layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
-import "../styles/Homepage.css";
+//import "../styles/Homepage.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const [cart, setCart] = useCart();
+  //const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -64,6 +65,7 @@ const HomePage = () => {
     loadMore();
   }, [page]);
   //load more
+  
   const loadMore = async () => {
     try {
       setLoading(true);
@@ -130,16 +132,18 @@ const HomePage = () => {
             ))}
           </div>
           {/* price filter */}
+
           <h4 className="text-center mt-4">Filter By Price</h4>
           <div className="d-flex flex-column">
             <Radio.Group onChange={(e) => setRadio(e.target.value)}>
-              {Prices?.map((p) => (
+            {/*Prices?.map((p) => (
                 <div key={p._id}>
                   <Radio value={p.array}>{p.name}</Radio>
                 </div>
-              ))}
+            ))*/}
             </Radio.Group>
           </div>
+
           <div className="d-flex flex-column">
             <button
               className="btn btn-danger"
@@ -179,19 +183,20 @@ const HomePage = () => {
                     >
                       More Details
                     </button>
+                  
                     <button
                       className="btn btn-dark ms-1"
-                      onClick={() => {
+                      onClick={() => {/*
                         setCart([...cart, p]);
                         localStorage.setItem(
                           "cart",
                           JSON.stringify([...cart, p])
-                        );
+                        );   */
                         toast.success("Item Added to cart");
                       }}
                     >
                       ADD TO CART
-                    </button>
+                    </button>    
                   </div>
                 </div>
               </div>

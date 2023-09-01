@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { useAuth } from "../context/auth";
-/*
+
 import { Prices } from "../components/Prices";
+/*
 import { useCart } from "../context/cart"; */
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -22,7 +23,7 @@ const HomePage = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  //get all cat
+  //get all category
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get("/api/v1/category/get-category");

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
+import { useAuth } from "../context/auth";
 /*
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart"; */

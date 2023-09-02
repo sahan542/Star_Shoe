@@ -1,6 +1,6 @@
 import express from 'express';
 import { isAdmin, requireSignIn } from '../middlewares/authMiddleware.js';
-import { createProductController, deleteProductController, getProductController, updateProductController } from '../controllers/productController.js';
+import { createProductController, deleteProductController, getProductController, productCountController, productListController, searchProductController, updateProductController } from '../controllers/productController.js';
 
 const router = express.Router();
 
@@ -21,5 +21,17 @@ router.get('/product-photo/:pid', productPhotoController);
 
 //delete Product
 router.delete('/product/:pid', deleteProductController);
+
+//filter product
+router.post("/product-filters", productFiltersController);
+
+//product count
+router.get('/product-count',productCountController);
+
+//product per page
+router.get('/product-list/:page', productListController);
+
+//search product
+router.get("/search/:keyword", searchProductController);
 
 export default router;
